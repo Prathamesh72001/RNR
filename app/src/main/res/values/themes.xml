@@ -1,0 +1,37 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.RNR" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme_EditText">
+        <item name="colorPrimary">@color/black</item>
+    </style>
+
+    <style name="Theme_RatingBar">
+        <item name="android:progressDrawable">@drawable/iv_custom_star</item>
+        <item name="maxHeight">20dp</item>
+        <item name="maxWidth">20dp</item>
+        <item name="android:stepSize">3</item>
+        <item name="android:numStars">5</item>
+    </style>
+
+    <style name="Theme_Dialogue_Box">
+        <item name="android:windowAnimationStyle">@style/Dialogue_Box_Animation</item>
+    </style>
+
+    <style name="Dialogue_Box_Animation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+</resources>

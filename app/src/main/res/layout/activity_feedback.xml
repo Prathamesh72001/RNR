@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context=".view.activities.FeedbackActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/iv_back"
+            android:layout_marginTop="25dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hind_regular"
+                android:text="@string/string_welcome"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hind_semibold"
+                android:text="@string/string_username"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
+
+            <TextView
+                android:id="@+id/tv_your_points_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hind_regular"
+                android:text="@string/string_your_points_title"
+                android:textAllCaps="true"
+                android:textColor="@color/grey"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hind_semibold"
+                android:text="@string/string_points"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_your_points_title" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tv_provide_feedback_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hind_bold"
+            android:text="@string/string_provide_feedback"
+            android:textSize="26sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_select_employee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_select_employee"
+            android:fontFamily="@font/hind_medium"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="25dp"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_select_employee_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/dropdown_bg">
+
+            <TextView
+                android:id="@+id/tv_employee_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/hind_regular"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_toStartOf="@id/tv_dropdown"/>
+
+            <ImageView
+                android:id="@+id/tv_dropdown"
+                android:layout_width="16dp"
+                android:layout_height="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="@string/string_content_description"
+                android:src="@drawable/iv_dropdown" />
+
+            <ImageView
+                android:id="@+id/tv_dropup"
+                android:layout_width="16dp"
+                android:layout_height="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:visibility="gone"
+                android:contentDescription="@string/string_content_description"
+                android:src="@drawable/iv_dropup" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_select_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_select_project"
+            android:fontFamily="@font/hind_medium"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="25dp"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_select_project_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/dropdown_bg">
+
+            <TextView
+                android:id="@+id/tv_project_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/hind_regular"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_toStartOf="@id/tv_dropdown2"/>
+
+            <ImageView
+                android:id="@+id/tv_dropdown2"
+                android:layout_width="16dp"
+                android:layout_height="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="@string/string_content_description"
+                android:src="@drawable/iv_dropdown" />
+
+            <ImageView
+                android:id="@+id/tv_dropup2"
+                android:layout_width="16dp"
+                android:layout_height="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:visibility="gone"
+                android:contentDescription="@string/string_content_description"
+                android:src="@drawable/iv_dropup" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_feedback"
+            android:fontFamily="@font/hind_medium"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="25dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_feedback"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme_EditText"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidth="2dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/te_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:fontFamily="@font/hind_regular"
+                android:inputType="textMultiLine|textCapSentences"
+                android:lines="15"
+                android:maxLines="15"
+                android:gravity="top|left"
+                android:paddingLeft="20dp"
+                android:scrollbars="none"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/btn_bg">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_submit"
+                android:textSize="16sp"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/hind_bold"
+                android:textColor="@color/black"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_cancel"
+            android:textSize="16sp"
+            android:fontFamily="@font/hind_regular"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">RNR</string>
+
+    <string name="string_employee_portal">Employee Portal</string>
+    <string name="string_success">Success</string>
+    <string name="string_check_mail">Check Your Email</string>
+    <string name="string_no_connection">No Internet</string>
+    <string name="string_done">Done</string>
+    <string name="string_ok">Ok</string>
+    <string name="string_email_sent_successfully">We just sent you an email with a link to reset your password.</string>
+    <string name="string_feedback_uploaded_successfully">Your feedback is submitted successfully.</string>
+    <string name="string_check_connection">Please check your internet connection and try again.</string>
+    <string name="string_no_survey_found">404 No Survey Found</string>
+
+
+    /*--------------------LoginActivity-----------------*/
+    <string name="string_enter_your_email_address">Enter your email address</string>
+    <string name="string_enter_your_password">Enter your password</string>
+    <string name="string_login">Login</string>
+    <string name="string_forgot_password">Forgot your password?</string>
+
+
+    /*--------------------ForgotPasswordActivity-----------------*/
+    <string name="string_confirm_your_email_address">Confirm your email address</string>
+    <string name="string_reset_password">Reset Password</string>
+    <string name="string_cancel">Cancel</string>
+    <string name="string_please_fill_the_below_form">Please fill the below form to reset your password.</string>
+
+    /*-----------------DashboardActivity-----------------------*/
+    <string name="string_welcome">Welcome 👋🏽</string>
+    <string name="string_username">Pathik Botadra</string>
+    <string name="string_your_points_title">Your Points</string>
+    <string name="string_points">55</string>
+    <string name="string_available_survey_count">1</string>
+    <string name="string_available_survey_title">employee survey available.</string>
+    <string name="string_goto_survey">Go to Survey</string>
+    <string name="string_share_feedback">Share Feedback</string>
+    <string name="string_want_to_provide_feedback">Want to provide feedback for an employee?</string>
+    <string name="string_logout">Log out</string>
+
+    /*--------------------FeedbackActivity------------------------*/
+    <string name="string_provide_feedback">Provide feedback for an employee</string>
+    <string name="string_select_employee">Select Employee</string>
+    <string name="string_select_project">Select Project</string>
+    <string name="string_feedback">Feedback</string>
+    <string name="string_submit">Submit</string>
+
+    /*---------------------EmployeeSurveyActivity-----------------*/
+    <string name="string_employee_survey">Employee Survey</string>
+    <string name="string_employee_name">Manan Kapadia</string>
+    <string name="string_project_name">Project: Valucred</string>
+    <string name="string_time_mgmt">Time Management</string>
+    <string name="string_creativity">Creativity</string>
+    <string name="string_technical_knowledge">Technical Knowledge</string>
+    <string name="string_provide_more_feedback_title">Provide more feedback?</string>
+    <string name="string_provide_additional_feedback_for_employee">Provide additional feedback for Manan Kapadia</string>
+
+    /*-----------------------------SurveyListingActivity---------------------*/
+    <string name="string_survey_name">Survey on WFO/WFH policy</string>
+    <string name="string_survey_date">22/07/2022</string>
+    <string name="string_view_summary">View Survey</string>
+
+    /*-------------------------------CasualSurveyActivity-----------------------*/
+    <string name="string_survey_question">What is your thoughts on Fun Friday?</string>
+    <string name="string_dropdown_question">Please select your reason</string>
+    <string name="string_textfield_question">Which game did you like?</string>
+    <string name="string_textarea_question">How was your experience?</string>
+    <string name="string_radiobutton_question">Would you like another Fun Friday?</string>
+
+    /*-----------------ContentDescriptions-----------------------*/
+    <string name="string_content_description">TODO</string>
+</resources>
