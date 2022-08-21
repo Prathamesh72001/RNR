@@ -7,6 +7,7 @@ import com.example.rnr.model.dataclasses.login.LoginBody
 import com.example.rnr.model.dataclasses.login.LoginResponse
 import com.example.rnr.model.dataclasses.resetpasswordemail.ResetPasswordEmailBody
 import com.example.rnr.model.dataclasses.surveylist.SurveyListResponse
+import com.example.rnr.model.dataclasses.surveylist.casualsurveylist.CasualSurveyResponse
 import com.example.rnr.model.dataclasses.surveylist.orgsurveylist.OrgSurveyResponse
 import com.example.rnr.model.retrofit.AuthRetrofitInterface
 import com.example.rnr.model.retrofit.RetrofitClient
@@ -112,6 +113,29 @@ class ViewRepository {
         })
     }
 
+    fun get_casual_survey(token:String,tenantId: String, surveyId:String ,casualsurveyResponse:IcasualsurveyResponse){
+        val service=RetrofitClient_for_AuthMe.getRetrofit(token).create(AuthRetrofitInterface::class.java)
+        val initiateLogin: Call<CasualSurveyResponse> = service.get_casual_survey(tenantId,surveyId)
+
+        initiateLogin.enqueue(object:Callback<CasualSurveyResponse> {
+            override fun onResponse(
+                call: Call<CasualSurveyResponse>,
+                response: Response<CasualSurveyResponse>
+            ) {
+                if(response.isSuccessful){
+                    casualsurveyResponse.onResponse(response.body()!!)
+                }
+                else{
+                    casualsurveyResponse.onFailure(Throwable(response.message()))
+                }
+            }
+
+            override fun onFailure(call: Call<CasualSurveyResponse>, t: Throwable) {
+                casualsurveyResponse.onFailure(t)
+            }
+        })
+    }
+
     fun surveylist(token:String,tenantId: String, surveylistResponse: IsurveylistResponse){
         val service=RetrofitClient_for_AuthMe.getRetrofit(token).create(AuthRetrofitInterface::class.java)
         val initiateLogin: Call<SurveyListResponse> = service.survey_list(tenantId)
@@ -162,6 +186,11 @@ class ViewRepository {
 
     interface IorgsurveyResponse{
         fun onResponse(response: OrgSurveyResponse)
+        fun onFailure(t:Throwable)
+    }
+
+    interface IcasualsurveyResponse{
+        fun onResponse(response: CasualSurveyResponse)
         fun onFailure(t:Throwable)
     }
 

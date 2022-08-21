@@ -6,6 +6,7 @@ import com.example.rnr.model.dataclasses.login.LoginBody
 import com.example.rnr.model.dataclasses.login.LoginResponse
 import com.example.rnr.model.dataclasses.resetpasswordemail.ResetPasswordEmailBody
 import com.example.rnr.model.dataclasses.surveylist.SurveyListResponse
+import com.example.rnr.model.dataclasses.surveylist.casualsurveylist.CasualSurveyResponse
 import com.example.rnr.model.dataclasses.surveylist.orgsurveylist.OrgSurveyResponse
 import com.example.rnr.model.sharedprefs.SessionManager
 import org.json.JSONObject
@@ -24,6 +25,9 @@ interface AuthRetrofitInterface {
 
     @GET("/api/app/{tenantId}/{surveyId}")
     fun get_org_survey(@Path("tenantId") tenantId: String,@Path("surveyId") surveyId:String): Call<OrgSurveyResponse>
+
+    @GET("/api/app/{tenantId}/{surveyId}")
+    fun get_casual_survey(@Path("tenantId") tenantId: String,@Path("surveyId") surveyId:String): Call<CasualSurveyResponse>
 
     @GET("/api/app/{tenantId}/list")
     fun survey_list(@Path("tenantId") tenantId: String): Call<SurveyListResponse>

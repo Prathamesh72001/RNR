@@ -69,7 +69,6 @@ class EmployeeSurveyAdapter() :
         for(i in 0 until obj.kpi.size){
             val tv_rating=TextView(context)
             tv_rating.text=obj.kpi[i].category
-            tv_rating.id=i
             tv_rating.textSize=20F
             tv_rating.setTextColor(Color.BLACK)
             tv_rating.typeface=Typeface.createFromAsset(context.assets,"res/font/hind_bold.ttf")
@@ -80,6 +79,7 @@ class EmployeeSurveyAdapter() :
             val rb_rating=RatingBar(context)
             rb_rating.numStars=5
             rb_rating.stepSize=3F
+            rb_rating.progressDrawable=context.getDrawable(R.drawable.iv_custom_star)
 
             holder.ll_emplyee_ratings.addView(rb_rating)
         }

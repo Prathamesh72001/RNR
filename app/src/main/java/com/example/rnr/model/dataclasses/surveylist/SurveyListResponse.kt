@@ -7,8 +7,12 @@ class SurveyListResponse() {
     @SerializedName("rows")
     lateinit var rows:Array<Survey>
 
-    constructor(rows:Array<Survey>):this(){
+    @SerializedName("count")
+    var count:Int=0
+
+    constructor(rows:Array<Survey>,count:Int):this(){
         this.rows=rows
+        this.count=count
     }
 
 }

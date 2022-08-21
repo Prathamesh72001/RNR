@@ -1,6 +1,7 @@
 package com.example.rnr.viewmodel
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import android.util.Log
 import android.view.View
@@ -16,11 +17,15 @@ import com.example.rnr.model.dataclasses.login.LoginResponse
 import com.example.rnr.model.dataclasses.resetpasswordemail.ResetPasswordEmailBody
 import com.example.rnr.model.dataclasses.surveylist.Survey
 import com.example.rnr.model.dataclasses.surveylist.SurveyListResponse
+import com.example.rnr.model.dataclasses.surveylist.casualsurveylist.CasualSurveyResponse
+import com.example.rnr.model.dataclasses.surveylist.casualsurveylist.Question
 import com.example.rnr.model.dataclasses.surveylist.orgsurveylist.Employee
 import com.example.rnr.model.dataclasses.surveylist.orgsurveylist.OrgSurveyResponse
 import com.example.rnr.model.sharedprefs.SessionManager
 import com.example.rnr.view.activities.EmployeeSurveyFormActivity
+import com.example.rnr.view.activities.LoginActivity
 import com.example.rnr.view.adapters.EmployeeSurveyAdapter
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import org.json.JSONObject
 
@@ -30,6 +35,8 @@ class MyViewModel : ViewModel() {
     var ResetPasswordEmailResultMutableData:MutableLiveData<String> = MutableLiveData()
     var SurveyListMutableData:MutableLiveData<ArrayList<Survey>> = MutableLiveData()
     var SurveyListNumberMutableData:MutableLiveData<Int> = MutableLiveData()
+    var CasualSurveyTitleMutableData:MutableLiveData<String> = MutableLiveData()
+    var CasualSurveyQuestionsMutableData:MutableLiveData<Array<Question>> = MutableLiveData()
 
     init {
         LoginResultMutableData.postValue("Not Logged In")
@@ -37,6 +44,8 @@ class MyViewModel : ViewModel() {
         AuthTokenMutableData.postValue("")
         SurveyListMutableData.postValue(arrayListOf())
         SurveyListNumberMutableData.postValue(0)
+        CasualSurveyTitleMutableData.postValue("")
+        CasualSurveyQuestionsMutableData.postValue(arrayOf())
     }
 
     fun login(email: String, password: String) {
@@ -66,7 +75,9 @@ class MyViewModel : ViewModel() {
             }
 
             override fun onFailure(t: Throwable) {
-
+                val snack = Snackbar.make(LoginActivity.btn_login!!,t.message.toString(),Snackbar.LENGTH_LONG)
+                snack.view.setBackgroundColor(Color.RED)
+                snack.show()
             }
 
         })
@@ -85,7 +96,25 @@ class MyViewModel : ViewModel() {
             }
 
             override fun onFailure(t: Throwable) {
+                val snack = Snackbar.make(LoginActivity.btn_login!!,t.message.toString(),Snackbar.LENGTH_LONG)
+                snack.view.setBackgroundColor(Color.RED)
+                snack.show()
+            }
 
+        })
+    }
+
+    fun get_casual_survey(token:String,tenantId: String, surveyId:String){
+        ViewRepository().get_casual_survey(token,tenantId,surveyId,object :ViewRepository.IcasualsurveyResponse{
+            override fun onResponse(response: CasualSurveyResponse) {
+                CasualSurveyTitleMutableData.postValue(response.name)
+                CasualSurveyQuestionsMutableData.postValue(response.questions)
+            }
+
+            override fun onFailure(t: Throwable) {
+                val snack = Snackbar.make(LoginActivity.btn_login!!,t.message.toString(),Snackbar.LENGTH_LONG)
+                snack.view.setBackgroundColor(Color.RED)
+                snack.show()
             }
 
         })
@@ -94,7 +123,7 @@ class MyViewModel : ViewModel() {
     fun surveylist(token:String,tenantId:String){
         ViewRepository().surveylist(token,tenantId,object :ViewRepository.IsurveylistResponse{
             override fun onResponse(response: SurveyListResponse) {
-                SurveyListNumberMutableData.postValue(response.rows.size)
+                SurveyListNumberMutableData.postValue(response.count)
 
                 val list=ArrayList<Survey>()
                 for(i in 0 until response.rows.size){
@@ -105,8 +134,9 @@ class MyViewModel : ViewModel() {
             }
 
             override fun onFailure(t: Throwable) {
-                Log.d("tag",t.message.toString())
-            }
+                val snack = Snackbar.make(LoginActivity.btn_login!!,t.message.toString(), Snackbar.LENGTH_LONG)
+                snack.view.setBackgroundColor(Color.RED)
+                snack.show()            }
         })
     }
 
@@ -139,6 +169,14 @@ class MyViewModel : ViewModel() {
 
     fun getSurveyListNumberResult():LiveData<Int> {
         return SurveyListNumberMutableData
+    }
+
+    fun getCasualSurveyQuestionsResult():LiveData<Array<Question>> {
+        return CasualSurveyQuestionsMutableData
+    }
+
+    fun getCasualSurveyTitleResult():LiveData<String> {
+        return CasualSurveyTitleMutableData
     }
 
     fun getResetPasswordEmailResult():LiveData<String> {
